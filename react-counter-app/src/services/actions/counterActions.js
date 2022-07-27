@@ -16,3 +16,9 @@ export const resetAction = () => {
     };
 };
 
+export const incrementByValue = (value) => {
+    return {
+        type: INCREMENT_BY_VALUE,
+        payload: value
+    }
+}

@@ -21,6 +21,11 @@ const counterReducer = (state = initialState, action) => {
                 ...state,
                 count: 0
             };
+        case INCREMENT_BY_VALUE:
+            return {
+                ...state,
+                count: state.count + action.payload
+            };
 
         default:
             return state;
