@@ -31,7 +31,7 @@ const addProductAction = (product) => {
         payload: product
     }
 }
-// product action 
+// cart action 
 const getCartsAction = () => {
     return {
         type: GET_CART_ITEMS
@@ -63,7 +63,7 @@ const productReducer = (state = initialProductState, action) => {
             return state;
     }
 }
-// product reducer
+// cart reducer
 const cartReducer = (state = initialCartState, action) => {
     switch (action.type) {
         case GET_CART_ITEMS:
