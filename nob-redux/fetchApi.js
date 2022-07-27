@@ -75,18 +75,16 @@ const todosReducer = (state = initialTodosState, action) => {
 }
 
 const fetchApi = () => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(getApiRequest())
-        axios.get(API_URL)
-            .then(res => {
-                const todos = res.data;
-                const titles = todos.map(todo => todo.title)
-                dispatch(getApiSuccess(titles))
-            })
-            .catch(error => {
-                const msg = error.message;
-                dispatch(getApiFailed(msg))
-            })
+        try {
+
+            const { data } = await axios.get(API_URL)
+            const titles = data.map(todo => todo.title)
+            dispatch(getApiSuccess(titles))
+        } catch (err) {
+            dispatch(getApiFailed(err.message))
+        }
     }
 }
 
