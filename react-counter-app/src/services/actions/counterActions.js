@@ -1,4 +1,4 @@
-import { DECREMENT, INCREMENT, RESET } from "../constants/counterConstants"
+import { DECREMENT, INCREMENT, INCREMENT_BY_VALUE, RESET } from "../constants/counterConstants"
 
 export const incrementAction = () => {
     return {
@@ -15,3 +15,4 @@ export const resetAction = () => {
         type: RESET
     };
 };
+
