@@ -1,23 +1,23 @@
 /**
- * 1. State
- * 2. dispatch action
- *      a. create constant
- * 3. reducer
- * 4. create store and update
- *      -- subscribe(), getState(), dispatch()
+ * state = 0
+ * action -> increment, decrement, action
+ * reducer
+ * store
  * **/
 
-const { createStore } = require("redux")
+const { createStore } = require('redux')
 
-// constant
-const INCREMENT = "INCREMENT"
-const DECREMENT = "DECREMENT"
+const INCREMENT = 'INCREMENT'
+const DECREMENT = 'DECREMENT'
+const RESET = 'RESET'
 
-// state 
+
+//  state
 const initialState = {
     count: 0
 }
 
+// action
 const incrementAction = () => {
     return {
         type: INCREMENT
@@ -28,43 +28,53 @@ const decrementAction = () => {
         type: DECREMENT
     }
 }
+const resetAction = () => {
+    return {
+        type: RESET
+    }
+}
 
-// reducer
-
+// reducer 
 const counterReducer = (state = initialState, action) => {
     switch (action.type) {
         case INCREMENT:
             return {
                 ...state,
                 count: state.count + 1
-            }
-            break;
+            };
         case DECREMENT:
             return {
                 ...state,
                 count: state.count - 1
-            }
-            break;
+            };
+        case RESET:
+            return {
+                ...state,
+                count: 0
+            };
 
         default:
-            return state
-            break;
+            return state;
     }
 }
 
-// create store
+// create Store
 
 const store = createStore(counterReducer)
-
 store.subscribe(() => {
     console.log(store.getState());
 })
 
-// dispatch action
+// dispatch
+
 store.dispatch(incrementAction())
 store.dispatch(incrementAction())
 store.dispatch(incrementAction())
 store.dispatch(decrementAction())
+store.dispatch(decrementAction())
+store.dispatch(incrementAction())
+store.dispatch(resetAction())
 store.dispatch(incrementAction())
 store.dispatch(incrementAction())
 store.dispatch(incrementAction())
+
