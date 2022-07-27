@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchData } from '../services/actions/todosAction';
+import { fetchData } from '../services/actions/todosFetchAction';
 
 const Todos = () => {
     const { isLoading, error, todos } = useSelector((state) => state);
