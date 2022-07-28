@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: beige;
+  background-color: bisque;
 }
 
 nav {
@@ -32,10 +32,46 @@ nav {
 
 main {
   min-height: 90vh;
-
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
   margin: 3rem;
+}
+
+table {
+  margin: 40px;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid;
+  padding: 1rem;
+}
+
+button {
+  width: 90px;
+  margin: 8px;
+  padding: 0.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+.input-group {
+  margin: 20px;
+}
+
+input {
+  width: 20rem;
+  padding: 0.2rem;
 }
